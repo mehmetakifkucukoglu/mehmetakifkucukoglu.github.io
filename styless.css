@@ -1,0 +1,229 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0.5rem 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: var(--transition);
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Section Styles */
+.section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.section p {
+    margin-bottom: 1.5rem;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* List Styles */
+.section ul {
+    list-style: none;
+}
+
+.section ul li {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.section ul li:hover {
+    transform: translateX(10px);
+    background: #f0f0f0;
+}
+
+.section ul li strong {
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Contact Section */
+#contact ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#contact ul li {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+#contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem;
+    width: 100%;
+    transition: var(--transition);
+}
+
+#contact a:hover {
+    color: var(--secondary-color);
+    background: var(--light-bg);
+    border-radius: 10px;
+}
+
+/* Home Section Special Styling */
+#home {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #fff, #f9f9f9);
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, rgba(52, 152, 219, 0) 70%);
+    animation: rotate 20s linear infinite;
+    z-index: 0;
+}
+
+#home > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .section {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    #contact ul {
+        flex-direction: column;
+    }
+
+    #contact ul li {
+        min-width: 100%;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-bg: #1a1a1a;
+        --text-color: #f4f4f4;
+    }
+
+    body {
+        background-color: #121212;
+    }
+
+    .section {
+        background: #2d2d2d;
+    }
+
+    .section ul li {
+        background: #363636;
+    }
+
+    .section ul li:hover {
+        background: #404040;
+    }
+}
